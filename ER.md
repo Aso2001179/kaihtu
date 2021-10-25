@@ -44,11 +44,18 @@ package "ECサイト" as target_system {
         c_regdate
     }
     
- entity "購入テーブル" as order <d_purchase> <<T,TRANSACTION_MARK_COLOR>> MAIN_ENTITY{
-    +order_id[PK]
+ entity "商品" as order <prodact> <<T,TRANSACTION_MARK_COLOR>> MAIN_ENTITY{
+    +p_id[PK]
     --
-    #curtomer_date [PK]
-    purchase_date
+     p_name
+     gb_id
+     p_model
+     gc_name
+     gs_id
+     m_id
+     p_saledate
+     p_price
+    
     total_price
     }
 entity "購入詳細テーブル" as order_detail <d_purchase> <<T,TRANSACTION_MARK_COLOR>> MAIN_ENTITY{
