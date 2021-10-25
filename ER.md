@@ -44,40 +44,37 @@ package "ECサイト" as target_system {
         c_regdate
     }
     
- entity "商品" as order <prodact> <<T,TRANSACTION_MARK_COLOR>> MAIN_ENTITY{
+ entity "商品" as prodact <prodact> <<T,TRANSACTION_MARK_COLOR>> MAIN_ENTITY{
     +p_id[PK]
     --
      p_name
-     gb_id
      p_model
+     gb_id[FK]
      gc_name
      gs_id
-     m_id
+     m_id[FK]
      p_saledate
      p_price
-    
-    total_price
     }
-entity "購入詳細テーブル" as order_detail <d_purchase> <<T,TRANSACTION_MARK_COLOR>> MAIN_ENTITY{
-    +order_id[PK]
-    +detail_id[PK]
+entity "販売メーカー" as maker <maker> <<T,TRANSACTION_MARK_COLOR>> MAIN_ENTITY{
+    +m_id[PK]
     --
-    #item_code[FK]
-   price
-   num
+   m_name
+   m_postcode
+   m_address
+   m_tel
+   m_faxtel
    }
-    entity "商品マスタ" as items <m_items> <<M,MASTER_MARK_COLOR>> {
-        + item_code [PK]
+    entity "ジャンル" as　genre <genre> <<M,MASTER_MARK_COLOR>> {
+        +gb_id [PK]
         --
-        item_name
-        price
-        # category_id
-        image
-        detail
-        del_flag
-        reg_date
+        gb_name
+        gc_id
+        gc_name
+        gs_id
+        gs_name
     }
- entity "カテゴリマスタ" as category <m_category> <<M,MASTER_MARK_COLOR>> {
+ entity "パスワード" as category <m_category> <<M,MASTER_MARK_COLOR>> {
         + category_id [PK]
         --
         name
