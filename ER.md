@@ -65,7 +65,7 @@ entity "販売メーカー" as maker <maker> <<T,TRANSACTION_MARK_COLOR>> MAIN_E
    m_tel
    m_faxtel
    }
-    entity "ジャンル" as　genre <genre> <<M,MASTER_MARK_COLOR>> {
+    entity "ジャンル" as genre <genre> <<M,MASTER_MARK_COLOR>> {
         +gb_id [PK]
         --
         gb_name
