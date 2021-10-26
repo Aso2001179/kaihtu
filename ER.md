@@ -79,8 +79,31 @@ entity "販売メーカー" as maker <maker> <<T,TRANSACTION_MARK_COLOR>> MAIN_E
         --
         name
         reg_date
-    }   
-  }
+    } 
+ entity "カート" as  cart <cart> <<M,MASTER_MARK_COLOR>> {
+        + c_id[FK]
+        --
+        p_id[FK]
+       }
+ entity "注文詳細" as order_details <order_details> <<M,MASTER_MARK_COLOR>> {    
+      +o_id[FK]
+      +c_id[FK]
+      --
+      p_id[PK]
+      buy_date
+      buy_purice
+      tax
+      delivery_day
+      delivery_address
+      delivery_name
+      }
+ entity "レビュー" as review <review> <<M,MASTER_MARK_COLOR>> { 
+      +p_id[FK]
+      --
+      r_id[PK]
+      r_coment
+      r_sutars
+ } 
  customer       |o-ri-o{     order
 order          ||-ri-|{     order_detail
 order_detail    }-do-||     items
