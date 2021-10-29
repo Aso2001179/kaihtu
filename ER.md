@@ -107,5 +107,6 @@ entity "販売メーカー" as maker <maker> <<T,TRANSACTION_MARK_COLOR>> MAIN_E
 customer ||--||cart
 cart ----o{ prodact
 maker ----o{ prodact
+prodact }o--|{ genre
 @enduml
 ```
