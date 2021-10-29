@@ -74,7 +74,7 @@ entity "販売メーカー" as maker <maker> <<T,TRANSACTION_MARK_COLOR>> MAIN_E
         gs_id
         gs_name
     }
- entity "パスワード" as category <m_category> <<M,MASTER_MARK_COLOR>> {
+ entity "パスワード" as password <password> <<M,MASTER_MARK_COLOR>> {
         +pw_id [PK]
         --
         pw_value
@@ -108,5 +108,6 @@ customer ||--||cart
 cart ----o{ prodact
 maker ----o{ prodact
 prodact }o--|{ genre
+customer ||--|| password
 @enduml
 ```
