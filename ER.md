@@ -109,5 +109,5 @@ cart ----o{ prodact
 maker ----o{ prodact
 prodact }o--|{ genre
 customer ||--|| password
-@enduml
+customer ||--|{ order_details
 ```
