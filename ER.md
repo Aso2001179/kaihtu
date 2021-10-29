@@ -104,9 +104,6 @@ entity "販売メーカー" as maker <maker> <<T,TRANSACTION_MARK_COLOR>> MAIN_E
       r_coment
       r_sutars
  } 
- customer       |o-ri-o{     order
-order          ||-ri-|{     order_detail
-order_detail    }-do-||     items
-items          }o-le-||     category 
+
 @enduml
 ```
