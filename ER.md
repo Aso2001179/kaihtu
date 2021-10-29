@@ -75,10 +75,10 @@ entity "販売メーカー" as maker <maker> <<T,TRANSACTION_MARK_COLOR>> MAIN_E
         gs_name
     }
  entity "パスワード" as category <m_category> <<M,MASTER_MARK_COLOR>> {
-        + category_id [PK]
+        +pw_id [PK]
         --
-        name
-        reg_date
+        pw_value
+        c_id
     } 
  entity "カート" as  cart <cart> <<M,MASTER_MARK_COLOR>> {
         + c_id[FK]
