@@ -105,6 +105,6 @@ entity "販売メーカー" as maker <maker> <<T,TRANSACTION_MARK_COLOR>> MAIN_E
       r_sutars
  } 
 customer ||--||cart
-cart ||--0{ prodact
+cart ----o{ prodact
 @enduml
 ```
