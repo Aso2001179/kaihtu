@@ -110,4 +110,6 @@ maker ----o{ prodact
 prodact }o--|{ genre
 customer ||--|| password
 customer ||--|{ order_details
+customer ||--o{ review
+@enduml
 ```
