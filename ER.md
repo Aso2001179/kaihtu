@@ -111,5 +111,6 @@ prodact }o--|{ genre
 customer ||--|| password
 customer ||--|{ order_details
 customer ||--o{ review
+prodact ||--o{ review
 @enduml
 ```
