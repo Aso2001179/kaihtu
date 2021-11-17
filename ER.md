@@ -36,11 +36,10 @@ package "ECサイト" as target_system {
         +  c_id[PK]
         --
         c_name
-        c_namek
-        postcode
+        c_frigana
+        c_postcode
         c_address
-        email
-        c_birthday
+        c_email
         c_regdate
     }
     
@@ -49,12 +48,12 @@ package "ECサイト" as target_system {
     --
      p_name
      p_model
-     gb_id[FK]
-     gc_name
-     gs_id
-     m_id[FK]
+     g_id[FK]
+     m_name
      p_saledate
      p_price
+     p_pr
+     p_photo_path
     }
 entity "販売メーカー" as maker <maker> <<T,TRANSACTION_MARK_COLOR>> MAIN_ENTITY{
     +m_id[PK]
@@ -66,45 +65,48 @@ entity "販売メーカー" as maker <maker> <<T,TRANSACTION_MARK_COLOR>> MAIN_E
    m_faxtel
    }
     entity "ジャンル" as genre <genre> <<M,MASTER_MARK_COLOR>> {
-        +gb_id [PK]
+        +g_id [PK]
         --
-        gb_name
-        gc_id
-        gc_name
-        gs_id
-        gs_name
+        g_name
     }
  entity "パスワード" as password <password> <<M,MASTER_MARK_COLOR>> {
         +pw_id [PK]
         --
         pw_value
-        c_id
     } 
  entity "カート" as  cart <cart> <<M,MASTER_MARK_COLOR>> {
-        + c_id[FK]
+        + c_id[PK]
         --
         p_id[FK]
+        cart_qty
        }
  entity "注文詳細" as order_details <order_details> <<M,MASTER_MARK_COLOR>> {    
-      +o_id[FK]
-      +c_id[FK]
+      +od_id[PK]
+      +c_id[PK]
       --
       p_id[PK]
-      buy_date
-      buy_purice
-      tax
-      delivery_day
-      delivery_address
-      delivery_name
+      order_qty
+      unitprice
       }
  entity "レビュー" as review <review> <<M,MASTER_MARK_COLOR>> { 
-      +p_id[FK]
+      +p_id[PK]
       --
-      r_id[PK]
+      c_id[FK]
       r_coment
       r_sutars
-      c_id
  } 
+entity "注文" as order <order> <<M,MASTER_MARK_COLOR>> { 
+    +o_id[PK]
+    --
+    o_date[FK]
+    c_id
+    tax
+    delivery_cost
+    sumprice
+    delivery_day
+    delivery_address
+    delivery_name
+
 customer ||--||cart
 cart ----o{ prodact
 maker ----o{ prodact
@@ -113,5 +115,6 @@ customer ||--|| password
 customer ||--|{ order_details
 customer ||--o{ review
 prodact ||--o{ review
+customer ||----o{ order
 @enduml
 ```
