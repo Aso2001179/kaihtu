@@ -106,7 +106,7 @@ entity "注文" as order <order> <<M,MASTER_MARK_COLOR>> {
     delivery_day
     delivery_address
     delivery_name
-
+}
 customer ||--||cart
 cart ----o{ prodact
 maker ----o{ prodact
