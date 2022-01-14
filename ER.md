@@ -58,11 +58,7 @@ package "ECサイト" as target_system {
 entity "販売メーカー" as maker <maker> <<T,TRANSACTION_MARK_COLOR>> MAIN_ENTITY{
     +m_id[PK]
     --
-   m_name
-   m_postcode
-   m_address
-   m_tel
-   m_faxtel
+    m_name
    }
     entity "ジャンル" as genre <genre> <<M,MASTER_MARK_COLOR>> {
         +g_id [PK]
@@ -91,6 +87,7 @@ entity "販売メーカー" as maker <maker> <<T,TRANSACTION_MARK_COLOR>> MAIN_E
  entity "レビュー" as review <review> <<M,MASTER_MARK_COLOR>> { 
       +p_id[PK]
       --
+      p_id[FK]
       c_id[FK]
       r_coment
       r_sutars
