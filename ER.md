@@ -104,11 +104,7 @@ entity "注文" as order <order> <<M,MASTER_MARK_COLOR>> {
     delivery_address
     delivery_name
 }
-entity "販売メーカー" as maker <maker> <<M,MASTER_MARK_COLOR>> { 
-    +m_id[PK]
-    --
-    m_name
-}
+
 customer ||--||cart
 cart ----o{ prodact
 maker ----o{ prodact
